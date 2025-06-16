@@ -7,7 +7,7 @@
 
 /* Header Styles */
 .header {
-  background-color: #3b81c7;
+  background-color: #4fc3f7;
   color: white;
   height: 65px;
   line-height: 65px;
@@ -48,4 +48,50 @@
   color: #0f3242;
   border-bottom: 2px solid #0f3242;
 }
+
+/* Hero Banner Styles */
+.hero-banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),
+    url('https://images.unsplash.com/photo-1441986300917-64674bd600d8');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  height: calc(100svh - 65px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-banner h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-banner p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-button {
+  padding: 0.75rem 2rem;
+  background-color: #4fc3f7;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.hero-button:hover {
+  background-color: #03a9f4;
+}
+
 

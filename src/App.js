@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-// import Home from './components/Home';
+import Home from './pages/Home';
 // import About from './components/About';
 // import Cart from './components/Cart';
 
@@ -16,9 +16,9 @@ function App() {
     <>
       <Header links={navLinks} />
       <Routes>
-        {/* <Route path="/" element={<Home />} />
-        {/* <Route path="/about" element={<About />} />
-        <Route path="/cart" element={<Cart />} /> */}
+        <Route path="/" element={<Home />} />
+        {/* <Route path="/about" element={<About />} /> */}
+        {/* <Route path="/cart" element={<Cart />} /> */}
       </Routes></>
   );
 }
