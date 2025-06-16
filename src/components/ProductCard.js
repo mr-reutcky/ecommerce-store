@@ -1,5 +1,16 @@
+import { useCart } from './CartContext';
 
-function ProductCard({ product, onAddToCart }) {
+function ProductCard({ product}) {
+  const { state, dispatch } = useCart();
+
+  const cartItem = state.items.find(i => i.id === product.id);
+  const qty = cartItem ? cartItem.qty : 0;
+
+  const addOne = () =>
+    dispatch({ type: 'add', payload: product });
+
+  const minusOne = () =>
+    dispatch({ type: 'dec', id: product.id });
   return (
     <div className="product-card">
       <img
@@ -9,12 +20,17 @@ function ProductCard({ product, onAddToCart }) {
       />
       <h3 className="product-title">{product.title}</h3>
       <p className="product-price">${product.price.toFixed(2)}</p>
-      <button
-        className="add-to-cart-btn"
-        onClick={() => onAddToCart(product)}
-      >
-        Add to Cart
-      </button>
+        {qty === 0 ? (
+          <button className="add-to-cart-btn" onClick={addOne}>
+            Add to Cart
+          </button>
+        ) : (
+          <div className="qty-stepper">
+            <button onClick={minusOne}>−</button>
+            <span>{qty}</span>
+            <button onClick={addOne}>＋</button>
+          </div>
+        )}
     </div>
   );
 }

@@ -11,7 +11,7 @@ function Header({ links,onCartClick }) {
         <h1 className="logo">E-commerce Store</h1>
         <nav>
           <ul className="nav-list">
-            {links.filter(link => !link.hidden) .map((link) => (
+            {links.filter(link => !link.hidden).map((link) => (
               <li key={link.path}>
                 <NavLink
                   to={link.path}

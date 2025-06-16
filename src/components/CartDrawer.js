@@ -1,4 +1,4 @@
-// CartDrawer.js
+
 import React from 'react';
 import { useCart } from './CartContext';
 import '../css/CartDrawer.css';
@@ -10,20 +10,17 @@ function CartDrawer({ open, onClose }) {
 
   return (
     <>
-      {/* 背景遮罩 */}
       <div
         className={`backdrop ${open ? 'show' : ''}`}
         onClick={onClose}
       />
 
-      {/* 侧边抽屉 */}
       <aside className={`drawer ${open ? 'show' : ''}`}>
         <header className="drawer__header">
           <h2>Cart</h2>
           <button className="close-btn" onClick={onClose}>×</button>
         </header>
 
-        {/* 内容 */}
         <div className="drawer__content">
           {items.length === 0 ? (
             <div className="empty">
