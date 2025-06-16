@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import SimilarProducts from './SimilarProducts';
+import StarRating from './StarRating';
 
 
 function ProductDetail(){
@@ -48,7 +49,7 @@ function ProductDetail(){
             <div className='product-info'>
               <h1>{product.title}</h1>
               <div>
-                <Rating rating={product.rating} />
+                <StarRating rating={product.rating} />
               </div>
               <div>
                 <h3>{product.price}</h3>

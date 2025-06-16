@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+
+
+body{
+  background-color: rgb(24 23 32);
+}
+
+.container {
+  width: min(100% - 30px, 960px);
+  margin-inline: auto;
+}
+
+
+
+/******************/
+/* Rating */
+/******************/
+.star-rating-container {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.star-icon {
+  color: #ffc107;
+  font-size: 12px;
+}
+
+.empty-star {
+  color: #e4e5e9;
+}
