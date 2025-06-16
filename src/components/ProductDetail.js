@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import SimilarProducts from './SimilarProducts';
 import StarRating from './StarRating';
+import axios from 'axios';
 
 
 function ProductDetail(){
