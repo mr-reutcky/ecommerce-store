@@ -35,7 +35,7 @@
 
 .nav-link {
   text-decoration: none;
-  color: #ccc;
+  color: #eee;
   font-size: 1.6rem;
   transition: color 0.2s ease-in-out;
 }
@@ -45,8 +45,8 @@
 }
 
 .nav-link.active {
-  color: #0f3242;
-  border-bottom: 2px solid #0f3242;
+  color: #1a1a2e;
+  border-bottom: 2px solid #1a1a2e;
 }
 
 /* Hero Banner Styles */
