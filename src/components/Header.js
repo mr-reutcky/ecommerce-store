@@ -4,7 +4,7 @@ function Header({ links }) {
   return (
     <header className="header">
       <div className="header-container container">
-        <h1 className="logo">My Site</h1>
+        <h1 className="logo">E-commerce Store</h1>
         <nav>
           <ul className="nav-list">
             {links.map((link) => (
