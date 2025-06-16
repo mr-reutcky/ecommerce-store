@@ -1,32 +1,268 @@
-@charset "utf-8";
-
-
-
-body{
-  background-color: rgb(24 23 32);
-}
-
+@charset "UTF-8";
+/* Reset Styles */
 .container {
-  width: min(100% - 30px, 960px);
+  width: min(100% - 30px, 1200px);
   margin-inline: auto;
 }
 
+/* Header Styles */
+.header {
+  background-color: #4fc3f7;
+  color: white;
+  height: 65px;
+  line-height: 65px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-
-/******************/
-/* Rating */
-/******************/
-.star-rating-container {
+.header-container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 2px;
 }
 
-.star-icon {
-  color: #ffc107;
-  font-size: 12px;
+.logo {
+  font-size: 1.9rem;
+  font-weight: 600;
 }
 
-.empty-star {
-  color: #e4e5e9;
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 1.6rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-link.active {
+  color: #0f3242;
+  border-bottom: 2px solid #0f3242;
+}
+
+/* Hero Banner Styles */
+.hero-banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),
+    url('https://images.unsplash.com/photo-1441986300917-64674bd600d8');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  height: calc(100svh - 65px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-banner h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-banner p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-button {
+  padding: 0.75rem 2rem;
+  background-color: #4fc3f7;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.hero-button:hover {
+  background-color: #03a9f4;
+}
+
+
+/* About Section Styles */
+.about-section {
+  background-color: #ffffff;
+  padding: 4rem 2rem;
+  color: #1a1a2e;
+}
+
+.about-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.about-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.about-box {
+  background-color: #f9f9f9;
+  flex: 1 1 300px;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  max-width: 320px;
+}
+
+.about-box:hover {
+  transform: translateY(-5px);
+}
+
+.about-box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #4fc3f7;
+}
+
+.about-box p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Product Gallery Styles */
+.product-gallery {
+  padding: 4rem 2rem;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+.product-gallery h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #1a1a2e;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+/* Product Card Styles */
+.product-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.product-title {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.product-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #4fc3f7;
+  margin-bottom: 3rem;
+}
+
+.add-to-cart-btn {
+  background-color: #4fc3f7;
+  color: #fff;
+  border: none;
+  padding: 0.2rem 0.7rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.add-to-cart-btn:hover {
+  background-color: #03a9f4;
+}
+
+/* About Us Page Styles */
+.about-us-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  background-color: #fafafa;
+}
+
+.about-hero {
+  background: url('https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d') center/cover no-repeat;
+  padding: 6rem 2rem;
+  color: white;
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.about-content {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-text-block {
+  margin-bottom: 3rem;
+}
+
+.about-text-block h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1a1a2e;
+}
+
+.about-text-block p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #555;
 }
