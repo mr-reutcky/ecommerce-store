@@ -82,16 +82,31 @@
 .hero-button {
   padding: 0.75rem 2rem;
   background-color: #4fc3f7;
+  border: 2px solid #4fc3f7;
   color: #fff;
   font-weight: bold;
-  border: none;
   border-radius: 8px;
   text-decoration: none;
   transition: background-color 0.2s ease;
+  margin-right: 10px;
 }
 
 .hero-button:hover {
   background-color: #03a9f4;
+}
+
+.hero-button-secondary {
+  padding: 0.75rem 2rem;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #4fc3f7;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.hero-button-secondary:hover {
+  border-color: #03a9f4;
 }
 
 
