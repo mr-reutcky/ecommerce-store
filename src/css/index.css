@@ -166,6 +166,21 @@
   gap: 2rem;
 }
 
+.controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.controls select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
 /* Product Card Styles */
 .product-card {
   background-color: white;
