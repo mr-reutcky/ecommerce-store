@@ -20,6 +20,9 @@ function StarRating(props) {
   return(
     <div className='star-rating-container'>
       {stars}
+      <span>
+        {ratingValue.toFixed(1)} / 5
+      </span>
     </div>
   );
 }
