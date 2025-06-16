@@ -3,7 +3,7 @@ import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 function StarRating(props) {
   const rating = props.rating;
   const ratingValue = rating.rate;
-  //const ratingCount = rating.count;
+  const ratingCount = rating.count;
   const totalStars = 5;
 
   const stars = Array.from({length: totalStars}, (_, index) => {
@@ -21,7 +21,7 @@ function StarRating(props) {
     <div className='star-rating-container'>
       {stars}
       <span>
-        {ratingValue.toFixed(1)} / 5
+        {ratingValue.toFixed(1)} / 5 ({ratingCount} reviews)
       </span>
     </div>
   );
