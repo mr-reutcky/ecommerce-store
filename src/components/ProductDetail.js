@@ -5,6 +5,7 @@ import StarRating from './StarRating';
 import axios from 'axios';
 import Button from './Button';
 import {Link} from 'react-router-dom';
+import QuantitySelector from './QuantitySelector';
 
 
 function ProductDetail(){
@@ -81,9 +82,15 @@ function ProductDetail(){
               <div className='price'>
                 <h3>Price: <span>${product.price}</span></h3>
               </div>
+              <div className='category'>
+                <h3>Category: <span>{product.category}</span></h3>
+              </div>
               <div className='description'>
                 <h3>Description</h3>
                 <p>{product.description}</p>
+              </div>
+              <div>
+                <QuantitySelector />
               </div>
               <Button value='Add To Cart'/>
             </div>
