@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import ProductDetail from './components/ProductDetail';
@@ -21,7 +22,9 @@ function App() {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/product/:id" element={<ProductDetail />} />
         {/* <Route exact path="/cart" element={<Cart />} /> */}
-      </Routes></>
+      </Routes>
+      <Footer />
+    </>
   );
 }
 
