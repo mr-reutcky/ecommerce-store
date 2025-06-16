@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 // import Cart from './components/Cart';
@@ -19,7 +20,9 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
         {/* <Route exact path="/cart" element={<Cart />} /> */}
-      </Routes></>
+      </Routes>
+      <Footer />
+    </>
   );
 }
 
