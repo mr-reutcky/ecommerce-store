@@ -16,9 +16,9 @@ function App() {
     <>
       <Header links={navLinks} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        {/* <Route path="/cart" element={<Cart />} /> */}
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/about" element={<About />} />
+        {/* <Route exact path="/cart" element={<Cart />} /> */}
       </Routes></>
   );
 }
