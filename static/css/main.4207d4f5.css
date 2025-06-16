@@ -1,0 +1,2 @@
+.container{margin-inline:auto;width:min(100% - 30px,1200px)}.header{background-color:#3b81c7;box-shadow:0 2px 5px #0000001a;color:#fff;height:65px;line-height:65px}.header-container{align-items:center;display:flex;justify-content:space-between}.logo{font-size:1.9rem;font-weight:600}.nav-list{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0}.nav-link{color:#ccc;font-size:1.6rem;text-decoration:none;transition:color .2s ease-in-out}.nav-link:hover{color:#fff}.nav-link.active{border-bottom:2px solid #0f3242;color:#0f3242}
+/*# sourceMappingURL=main.4207d4f5.css.map*/
