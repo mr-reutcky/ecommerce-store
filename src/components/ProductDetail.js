@@ -45,7 +45,7 @@ function ProductDetail(){
         const categories = allProducts.data
           .filter(item => 
             item.category === productData.category && 
-            item.id !== id)
+            item.id !== productData.id)
           .slice(0, 5);
         setSimilarProducts(categories);
         setLoading(false);
