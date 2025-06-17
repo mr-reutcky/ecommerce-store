@@ -18,13 +18,13 @@ function CartDrawer({ open, onClose }) {
       <aside className={`drawer ${open ? 'show' : ''}`}>
         <header className="drawer__header">
           <h2>Cart</h2>
-          <button className="close-btn" onClick={onClose}>×</button>
+          <button className="close-btn" onClick={onClose}>X</button>
         </header>
 
         <div className="drawer__content">
           {items.length === 0 ? (
             <div className="empty">
-              <p>Looks like you haven’t added anything yet.</p>
+              <p>Looks like you haven't added anything yet.</p>
               <button onClick={onClose} className="primary full">Continue shopping</button>
             </div>
           ) : (
@@ -45,7 +45,7 @@ function CartDrawer({ open, onClose }) {
                     <button
                       className="remove"
                       onClick={() => dispatch({ type: 'remove', id: item.id })}
-                    >🗑</button>
+                    >X</button>
                   </li>
                 ))}
               </ul>

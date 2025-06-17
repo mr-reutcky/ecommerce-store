@@ -33,7 +33,7 @@ function reducer(state, action) {
   }
 }
 
-export function CartProvider({ children }) {
+function CartProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initial);
   return (
     <CartContext.Provider value={{ state, dispatch }}>
@@ -41,5 +41,7 @@ export function CartProvider({ children }) {
     </CartContext.Provider>
   );
 }
+
+export default CartProvider;
 
 export const useCart = () => useContext(CartContext);
