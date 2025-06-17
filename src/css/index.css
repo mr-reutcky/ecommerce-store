@@ -516,7 +516,6 @@
   text-align: center;
 }
 
-
 @media (max-width: 768px) {
   .product-detail {
     flex-direction: column;
