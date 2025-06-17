@@ -33,6 +33,11 @@ function ProductDetail(){
      const fetchProduct = async() => {
       try{
         const response = await axios.get(`${URL}/products/${id}`);
+
+        if (!response.data || !response.data.id){
+          throw new Error('Product not found');
+        }
+
         const productData = response.data;
         setProduct(productData);
 
@@ -47,6 +52,9 @@ function ProductDetail(){
       }
       catch(err){
         console.error('Error fetching product categories: ', error);
+        setError('Product not found or failed to load. Please try again later.');
+      }
+      finally {
         setLoading(false);
       }
      }
@@ -58,6 +66,19 @@ function ProductDetail(){
   if (loading){
     return (<div>Page is loading</div>);
   }
+  
+  if (error){
+    return(
+      <section className='product-details'>
+        <div className='container'>
+          <p>{error}</p>
+          <Link to="/">
+            <Button value="Back to Home" />
+          </Link>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <>
@@ -65,9 +86,6 @@ function ProductDetail(){
         <div className='container'>
           <div className='product-detail'>
             <div className='product-detail-image'>
-              <Link to='/'>
-                <Button value="Back" />
-              </Link>
               <img
                 src={product.image}
                 alt={product.title}
@@ -75,6 +93,9 @@ function ProductDetail(){
               />              
             </div>
             <div className='product-detail-info'>
+              <Link to='/products'>
+                <Button value="Back to Products" />
+              </Link>
               <h1>{product.title}</h1>
               <div>
                 <StarRating rating={product.rating} />
@@ -97,7 +118,7 @@ function ProductDetail(){
           </div>
         </div>
       </section>
-      <section class='product-gallery'>
+      <section className='product-gallery'>
         <div className='container'>
           <SimilarProducts products={similarProducts} />
         </div>
