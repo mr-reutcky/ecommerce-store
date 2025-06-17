@@ -19,17 +19,7 @@ function ProductDetail(){
 
   useEffect(() => {
     setLoading(true);
-    /*
-    axios.get(`${URL}/products/${id}`)
-      .then(response => {
-        setProduct(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching products:', error);
-        setLoading(false);
-      });
-      */
+
      const fetchProduct = async() => {
       try{
         const response = await axios.get(`${URL}/products/${id}`);
