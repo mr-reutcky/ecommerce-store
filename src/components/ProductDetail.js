@@ -19,17 +19,7 @@ function ProductDetail(){
 
   useEffect(() => {
     setLoading(true);
-    /*
-    axios.get(`${URL}/products/${id}`)
-      .then(response => {
-        setProduct(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching products:', error);
-        setLoading(false);
-      });
-      */
+
      const fetchProduct = async() => {
       try{
         const response = await axios.get(`${URL}/products/${id}`);
@@ -45,7 +35,7 @@ function ProductDetail(){
         const categories = allProducts.data
           .filter(item => 
             item.category === productData.category && 
-            item.id !== id)
+            item.id !== productData.id)
           .slice(0, 5);
         setSimilarProducts(categories);
         setLoading(false);
