@@ -64,7 +64,7 @@ function ProductDetail(){
   }, [id]);
 
   if (loading){
-    return (<div>Page is loading</div>);
+    return (<div className='loading'>Page is loading</div>);
   }
   
   if (error){
