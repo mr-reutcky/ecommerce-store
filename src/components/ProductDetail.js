@@ -93,7 +93,7 @@ function ProductDetail(){
               />              
             </div>
             <div className='product-detail-info'>
-              <Link to='/products'>
+              <Link to='/'>
                 <Button value="Back to Products" />
               </Link>
               <h1>{product.title}</h1>
