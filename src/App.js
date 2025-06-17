@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import ProductDetail from './components/ProductDetail';
+import Product from './pages/Product';
 // import Cart from './components/Cart';
 
 

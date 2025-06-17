@@ -20,13 +20,14 @@ function Product(){
       try{
         setLoading(true);
         const response = await axios.get(`${URL}/products/${id}`);
-        setProduct(response.data);
+        const detail = response.data;
+        setProduct(detail);
 
         const allProducts = await axios.get(`${URL}/products/`);
-        const categories = allProducts
+        const categories = allProducts.data
           .filter(item => 
-            item.category === response.data.category && 
-            item.id !== response.data.id);
+            item.category === detail.category && 
+            item.id !== id);
         setSimilarProducts(categories);
         setLoading(false);
       }
@@ -38,7 +39,10 @@ function Product(){
     fetchProduct();
   }, [id]);
 
-  // "rating":{"rate":3.9,"count":120}
+  if (loading){
+    return (<section className='product-details'>Loading...</section>);
+  }
+
 
   return (
     {product} &&
