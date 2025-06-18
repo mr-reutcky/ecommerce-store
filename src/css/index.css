@@ -399,6 +399,11 @@
   border-radius: 4px;
 }
 
+.btn:active {
+  transform: translateY(2px);
+  background: #0a53be;
+}
+
 .product-details {
   margin-top: 50px;
 }
