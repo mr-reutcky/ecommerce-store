@@ -8,7 +8,7 @@ import CartDrawer from './components/CartDrawer';
 import { useState } from 'react';
 import ProductDetail from './components/ProductDetail';
 import Product from './pages/Product';
-
+import NotFoundPage from './pages/404'; 
 // import Cart from './components/Cart';
 
 
@@ -27,6 +27,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/product/:id" element={<ProductDetail />} />
+        <Route path="*" element={<NotFoundPage />} />
         {/* <Route exact path="/cart" element={<Cart />} /> */}
       </Routes>
       <CartDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
