@@ -8,15 +8,17 @@ const initial = { items: [] };
 function reducer(state, action) {
   switch (action.type) {
     case 'add':
-      const exists = state.items.find(i => i.id === action.payload.id);
-      if (exists) {
-        return {
-          items: state.items.map(i =>
-            i.id === action.payload.id ? { ...i, qty: i.qty + 1 } : i
-          ),
-        };
-      }
-      return { items: [...state.items, { ...action.payload, qty: 1 }] };
+      const { id, qty: incomingQty = 1 } = action.payload;   
+        const exists = state.items.find(i => i.id === id);
+      
+        if (exists) {
+          return {
+            items: state.items.map(i =>
+              i.id === id ? { ...i, qty: i.qty + incomingQty } : i
+            ),
+          };
+        }
+        return { items: [...state.items, { ...action.payload, qty: incomingQty }] };
 
     case 'inc':
       return { items: state.items.map(i => i.id === action.id ? { ...i, qty: i.qty + 1 } : i) };
