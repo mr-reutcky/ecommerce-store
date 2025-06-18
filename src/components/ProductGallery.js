@@ -49,30 +49,32 @@ function ProductGallery() {
   }
 
   return (
-    <section className="product-gallery">
-      <h2>Our Products</h2>
+    <>
+      <section id='products' className="product-gallery">
+        <h2>Our Products</h2>
 
-      <div className="controls">
-        <select value={sortType} onChange={(e) => setSortType(e.target.value)}>
-          <option value="">Sort by Price</option>
-          <option value="low-to-high">Price: Low to High</option>
-          <option value="high-to-low">Price: High to Low</option>
-        </select>
+        <div className="controls">
+          <select value={sortType} onChange={(e) => setSortType(e.target.value)}>
+            <option value="">Sort by Price</option>
+            <option value="low-to-high">Price: Low to High</option>
+            <option value="high-to-low">Price: High to Low</option>
+          </select>
 
-        <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
-          <option value="all">All Categories</option>
-          {categories.map(cat => (
-            <option key={cat} value={cat}>{cat.charAt(0).toUpperCase() + cat.slice(1)}</option>
+          <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+            <option value="all">All Categories</option>
+            {categories.map(cat => (
+              <option key={cat} value={cat}>{cat.charAt(0).toUpperCase() + cat.slice(1)}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="product-grid container">
+          {filteredProducts.map(product => (
+            <ProductCard key={product.id} product={product} />
           ))}
-        </select>
-      </div>
-
-      <div className="product-grid container">
-        {filteredProducts.map(product => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }
 
