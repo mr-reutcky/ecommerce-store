@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import SimilarProducts from './SimilarProducts';
 import StarRating from './StarRating';
@@ -6,6 +6,7 @@ import axios from 'axios';
 import Button from './Button';
 import {Link} from 'react-router-dom';
 import QuantitySelector from './QuantitySelector';
+import { useCart } from './CartContext';
 
 
 function ProductDetail(){
@@ -14,6 +15,7 @@ function ProductDetail(){
   const [loading, setLoading] = useState(true);
   const [similarProducts, setSimilarProducts] = useState([]);
   const [error, setError] = useState(null);
+  const { dispatch } = useCart();
 
   const URL = 'https://fakestoreapi.com'
 
@@ -52,6 +54,10 @@ function ProductDetail(){
      fetchProduct();
 
   }, [id]);
+
+  const addToCart = () => {
+    dispatch({ type: 'add', payload: product });  
+  };
 
   if (loading){
     return (<div className='loading'>Page is loading</div>);
@@ -103,7 +109,9 @@ function ProductDetail(){
               <div>
                 <QuantitySelector />
               </div>
-              <Button value='Add To Cart'/>
+              <button className="btn" onClick={addToCart}>
+                Add To Cart
+              </button>
             </div>
           </div>
         </div>
