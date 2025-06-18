@@ -49,6 +49,27 @@
   border-bottom: 2px solid #1a1a2e;
 }
 
+.cart-btn {
+  display: inline-flex;
+  align-items: center; 
+  gap: 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.cart-badge {
+  position: static;
+  background: crimson;
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 9999px;
+  min-width: 20px;
+  text-align: center;
+}
+
 /* Hero Banner Styles */
 .hero-banner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),
@@ -249,6 +270,17 @@
   background-color: #03a9f4;
 }
 
+.qty-stepper{
+  display:inline-flex; align-items:center; gap:12px;
+  border:1px solid #ccc; border-radius:6px; padding:6px 10px;
+}
+.qty-stepper button{
+  width:24px; height:24px; border:1px solid #999;
+  border-radius:4px; background:#f7f7f7; font-size:18px;
+  line-height:20px; cursor:pointer;
+}
+.qty-stepper span{ min-width:18px; text-align:center; }
+
 /* About Us Page Styles */
 .about-us-page {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -352,6 +384,7 @@
   font-size: 0.9rem;
   color: #bbb;
 }
+
 
 
 /*******************/
@@ -530,5 +563,6 @@
     text-align: center;
   }
 }
+
 
 
