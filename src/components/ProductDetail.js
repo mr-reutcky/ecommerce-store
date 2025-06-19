@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import SimilarProducts from './SimilarProducts';
 import StarRating from './StarRating';
 import axios from 'axios';
 import Button from './Button';
-import {Link} from 'react-router-dom';
 import QuantitySelector from './QuantitySelector';
 import { useCart } from './CartContext';
 
@@ -15,10 +14,15 @@ function ProductDetail(){
   const [loading, setLoading] = useState(true);
   const [similarProducts, setSimilarProducts] = useState([]);
   const [error, setError] = useState(null);
+
+  /*
   const {  dispatch } = useCart();
   const [qty, setQty] = useState(1);
   const [isAdded, setIsAdded] = useState(false);
+  */
 
+  const { state: cartState, dispatch } = useCart();
+  const cartItem = cartState.items.find(item => item.id === product?.id);
 
   const URL = 'https://fakestoreapi.com'
 
@@ -57,6 +61,14 @@ function ProductDetail(){
 
   }, [id]);
 
+  const handleAddToCart = () => {
+    dispatch({ type: 'add', payload: { ...product, qty: 1}});
+  };
+
+  const handleQtyChange = (newQty) => {
+    dispatch({ type: 'set_qty', payload: { id: product.id, qty: newQty } });
+  };
+  /*
   const addToCart = () => {
     dispatch({ type: 'add', payload: { ...product, qty } });  
     setIsAdded(true);
@@ -67,6 +79,7 @@ function ProductDetail(){
     }, 2000);
     
   };
+  */
 
   if (loading){
     return (<div className='loading'>Page is loading</div>);
@@ -115,12 +128,21 @@ function ProductDetail(){
                 <h3>Description</h3>
                 <p>{product.description}</p>
               </div>
-              <div>
-                <QuantitySelector value={qty} onChange={setQty} />
+              <div className='cart-actions'>
+                {cartItem ? (
+                  <QuantitySelector 
+                    value={cartItem.qty}
+                    onChange={handleQtyChange}
+                  />
+                  ) : (
+                    <button 
+                      className='btn'
+                      onClick={handleAddToCart}>
+                        Add to Cart
+                    </button>
+                  )
+                } 
               </div>
-              <button className="btn" onClick={addToCart} disabled={isAdded}>
-                {isAdded ? 'Added To Cart' : 'Add to Cart'}
-              </button>
             </div>
           </div>
         </div>
