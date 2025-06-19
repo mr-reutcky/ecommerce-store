@@ -15,12 +15,6 @@ function ProductDetail(){
   const [similarProducts, setSimilarProducts] = useState([]);
   const [error, setError] = useState(null);
 
-  /*
-  const {  dispatch } = useCart();
-  const [qty, setQty] = useState(1);
-  const [isAdded, setIsAdded] = useState(false);
-  */
-
   const { state: cartState, dispatch } = useCart();
   const cartItem = cartState.items.find(item => item.id === product?.id);
 
@@ -68,18 +62,6 @@ function ProductDetail(){
   const handleQtyChange = (newQty) => {
     dispatch({ type: 'set_qty', payload: { id: product.id, qty: newQty } });
   };
-  /*
-  const addToCart = () => {
-    dispatch({ type: 'add', payload: { ...product, qty } });  
-    setIsAdded(true);
-
-    
-    setTimeout(() => {
-      setIsAdded(false);
-    }, 2000);
-    
-  };
-  */
 
   if (loading){
     return (<div className='loading'>Page is loading</div>);
