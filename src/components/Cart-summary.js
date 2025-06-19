@@ -5,6 +5,7 @@ import React from "react";
 const CartSummary = () => {
     const { CartItems } = useCart ();
     const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    
   return (
     <div className="cart-summary">
       <h2>Your Items</h2>
