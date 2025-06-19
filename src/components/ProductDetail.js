@@ -15,36 +15,37 @@ function ProductDetail(){
   const [loading, setLoading] = useState(true);
   const [similarProducts, setSimilarProducts] = useState([]);
   const [error, setError] = useState(null);
-  const { dispatch } = useCart();
+  const {  dispatch } = useCart();
   const [qty, setQty] = useState(1);
+  const [isAdded, setIsAdded] = useState(false);
+
 
   const URL = 'https://fakestoreapi.com'
 
   useEffect(() => {
     setLoading(true);
+    setError(null);
 
-     const fetchProduct = async() => {
+     const fetchProductAndSimilar = async() => {
       try{
-        const response = await axios.get(`${URL}/products/${id}`);
+        const productResponse = await axios.get(`${URL}/products/${id}`);
 
-        if (!response.data || !response.data.id){
+        if (!productResponse.data || !productResponse.data.id){
           throw new Error('Product not found');
         }
 
-        const productData = response.data;
+        const productData = productResponse.data;
         setProduct(productData);
 
-        const allProducts = await axios.get(`${URL}/products/`);
-        const categories = allProducts.data
+        const similarProductsResponse = await axios.get(`${URL}/products/category/${productData.category}`);
+        const similarData = similarProductsResponse.data
           .filter(item => 
-            item.category === productData.category && 
             item.id !== productData.id)
           .slice(0, 5);
-        setSimilarProducts(categories);
-        setLoading(false);
+        setSimilarProducts(similarData);    
       }
       catch(err){
-        console.error('Error fetching product categories: ', error);
+        console.error('Error fetching product categories: ', err);
         setError('Product not found or failed to load. Please try again later.');
       }
       finally {
@@ -52,12 +53,19 @@ function ProductDetail(){
       }
      }
 
-     fetchProduct();
+     fetchProductAndSimilar();
 
   }, [id]);
 
   const addToCart = () => {
     dispatch({ type: 'add', payload: { ...product, qty } });  
+    setIsAdded(true);
+
+    
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 2000);
+    
   };
 
   if (loading){
@@ -110,8 +118,8 @@ function ProductDetail(){
               <div>
                 <QuantitySelector value={qty} onChange={setQty} />
               </div>
-              <button className="btn" onClick={addToCart}>
-                Add To Cart
+              <button className="btn" onClick={addToCart} disabled={isAdded}>
+                {isAdded ? 'Added To Cart' : 'Add to Cart'}
               </button>
             </div>
           </div>
