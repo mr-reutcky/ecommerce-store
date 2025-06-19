@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useCart } from './CartContext';
 import { FiShoppingCart } from 'react-icons/fi';
 
@@ -8,7 +8,7 @@ function Header({ links,onCartClick }) {
   return (
     <header className="header">
       <div className="header-container container">
-        <h1 className="logo">E-commerce Store</h1>
+        <Link to="/"><h1 className="logo">Remu</h1></Link>
         <nav>
           <ul className="nav-list">
             {links.filter(link => !link.hidden).map((link) => (

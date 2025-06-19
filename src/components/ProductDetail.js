@@ -6,6 +6,7 @@ import axios from 'axios';
 import Button from './Button';
 import QuantitySelector from './QuantitySelector';
 import { useCart } from './CartContext';
+import ErrorPage from '../pages/404';
 
 
 function ProductDetail(){
@@ -69,19 +70,12 @@ function ProductDetail(){
   
   if (error){
     return(
-      <section className='product-details'>
-        <div className='container'>
-          <p>{error}</p>
-          <Link to="/">
-            <Button value="Back to Home" />
-          </Link>
-        </div>
-      </section>
+      <ErrorPage />
     )
   }
 
   return (
-    <>
+    <div className='product-detail-wrapper'>
       <section className='product-details'>
         <div className='container'>
           <div className='product-detail'>
@@ -134,7 +128,7 @@ function ProductDetail(){
           <SimilarProducts products={similarProducts} />
         </div>
       </section>
-    </>
+    </div>
   );
 }
 
