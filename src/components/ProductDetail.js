@@ -67,7 +67,7 @@ function ProductDetail(){
     return (<div className='loading'>Page is loading</div>);
   }
   
-  if (error){
+  if (!product || !product.id) {
     return(
       <ErrorPage />
     )
