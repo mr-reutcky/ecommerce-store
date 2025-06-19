@@ -22,14 +22,14 @@ function Footer() {
 
         <div className="footer-section">
           <h3>Contact</h3>
-          <p>Email: support@fakestore.com</p>
+          <p>Email: support@Remu.com</p>
           <p>Phone: (555) 123-4567</p>
           <p>Mon – Fri: 9:00 AM – 5:00 PM</p>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} FakeStore Inc. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Remu Inc. All rights reserved.</p>
       </div>
     </footer>
   );

@@ -14,10 +14,27 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+}
+
+.header-container nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .logo {
@@ -26,6 +43,7 @@
 }
 
 .nav-list {
+  margin-right: 20px;
   list-style: none;
   display: flex;
   gap: 1.5rem;
@@ -50,6 +68,7 @@
 }
 
 .cart-btn {
+  color: #fff;
   display: inline-flex;
   align-items: center; 
   gap: 6px;
@@ -72,7 +91,7 @@
 
 /* Hero Banner Styles */
 .hero-banner {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9)),
     url('https://images.unsplash.com/photo-1441986300917-64674bd600d8');
   background-size: cover;
   background-position: center;
@@ -96,8 +115,8 @@
 }
 
 .hero-banner p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  margin-bottom: 3rem;
 }
 
 .hero-button {
@@ -106,7 +125,7 @@
   border: 2px solid #4fc3f7;
   color: #fff;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 4px;
   text-decoration: none;
   transition: background-color 0.2s ease;
   margin-right: 10px;
@@ -120,8 +139,9 @@
   padding: 0.75rem 2rem;
   background-color: transparent;
   color: #fff;
+  font-weight: bold;
   border: 2px solid #4fc3f7;
-  border-radius: 8px;
+  border-radius: 4px;
   text-decoration: none;
   transition: border-color 0.2s ease;
 }
@@ -257,7 +277,7 @@
   border: none;
   padding: 0.3rem 0.9rem;
   font-weight: 500;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s ease;
   position: absolute;
@@ -283,6 +303,7 @@
 
 /* About Us Page Styles */
 .about-us-page {
+    height: calc(100vh - 305px);   
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #222;
   background-color: #fafafa;

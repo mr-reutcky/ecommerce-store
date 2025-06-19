@@ -6,6 +6,7 @@ import axios from 'axios';
 import Button from './Button';
 import QuantitySelector from './QuantitySelector';
 import { useCart } from './CartContext';
+import ErrorPage from '../pages/404';
 
 
 function ProductDetail(){
@@ -65,13 +66,15 @@ function ProductDetail(){
   if (loading){
     return (<div className='loading'>Page is loading</div>);
   }
-
-  if (!product){
-    return null;
+  
+  if (error){
+    return(
+      <ErrorPage />
+    )
   }
   
   return (
-    <>
+    <div className='product-detail-wrapper'>
       <section className='product-details'>
         <div className='container'>
           <div className='product-detail'>
@@ -120,7 +123,7 @@ function ProductDetail(){
           <SimilarProducts products={similarProducts} />
         </div>
       </section>
-    </>
+    </div>
   );
 }
 
