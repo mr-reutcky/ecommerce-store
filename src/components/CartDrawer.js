@@ -2,6 +2,8 @@
 import React from 'react';
 import { useCart } from './CartContext';
 import '../css/CartDrawer.css';
+import CheckOut from "../pages/CheckOut";
+
 
 
 function CartDrawer({ open, onClose }) {
