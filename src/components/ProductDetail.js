@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import SimilarProducts from './SimilarProducts';
 import StarRating from './StarRating';
 import axios from 'axios';
@@ -10,10 +10,10 @@ import { useCart } from './CartContext';
 
 function ProductDetail(){
   const { id } = useParams();
+  const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [similarProducts, setSimilarProducts] = useState([]);
-  const [error, setError] = useState(null);
 
   const { state: cartState, dispatch } = useCart();
   const cartItem = cartState.items.find(item => item.id === product?.id);
@@ -22,7 +22,6 @@ function ProductDetail(){
 
   useEffect(() => {
     setLoading(true);
-    setError(null);
 
      const fetchProductAndSimilar = async() => {
       try{
@@ -44,7 +43,7 @@ function ProductDetail(){
       }
       catch(err){
         console.error('Error fetching product categories: ', err);
-        setError('Product not found or failed to load. Please try again later.');
+        navigate('/404');
       }
       finally {
         setLoading(false);
@@ -53,7 +52,7 @@ function ProductDetail(){
 
      fetchProductAndSimilar();
 
-  }, [id]);
+  }, [id, navigate]);
 
   const handleAddToCart = () => {
     dispatch({ type: 'add', payload: { ...product, qty: 1}});
@@ -66,20 +65,11 @@ function ProductDetail(){
   if (loading){
     return (<div className='loading'>Page is loading</div>);
   }
-  
-  if (error){
-    return(
-      <section className='product-details'>
-        <div className='container'>
-          <p>{error}</p>
-          <Link to="/">
-            <Button value="Back to Home" />
-          </Link>
-        </div>
-      </section>
-    )
-  }
 
+  if (!product){
+    return null;
+  }
+  
   return (
     <>
       <section className='product-details'>
@@ -117,11 +107,7 @@ function ProductDetail(){
                     onChange={handleQtyChange}
                   />
                   ) : (
-                    <button 
-                      className='btn'
-                      onClick={handleAddToCart}>
-                        Add to Cart
-                    </button>
+                    <Button value='Add To Cart' onClick={() => handleAddToCart()} />                    
                   )
                 } 
               </div>
