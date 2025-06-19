@@ -28,6 +28,13 @@ function reducer(state, action) {
           i.id === action.id ? { ...i, qty: Math.max(1, i.qty - 1) } : i
         ),
       };
+    
+    case 'set_qty':
+      return {
+        items: state.items.map(i =>
+          i.id === action.payload.id ? { ...i, qty:Math.max(1, action.payload.qty)} : i
+        )
+      };
     case 'remove':
       return { items: state.items.filter(i => i.id !== action.id) };
     default:

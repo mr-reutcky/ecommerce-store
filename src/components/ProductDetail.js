@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import SimilarProducts from './SimilarProducts';
 import StarRating from './StarRating';
 import axios from 'axios';
 import Button from './Button';
-import {Link} from 'react-router-dom';
 import QuantitySelector from './QuantitySelector';
 import { useCart } from './CartContext';
 
@@ -15,36 +14,36 @@ function ProductDetail(){
   const [loading, setLoading] = useState(true);
   const [similarProducts, setSimilarProducts] = useState([]);
   const [error, setError] = useState(null);
-  const { dispatch } = useCart();
-  const [qty, setQty] = useState(1);
+
+  const { state: cartState, dispatch } = useCart();
+  const cartItem = cartState.items.find(item => item.id === product?.id);
 
   const URL = 'https://fakestoreapi.com'
 
   useEffect(() => {
     setLoading(true);
+    setError(null);
 
-     const fetchProduct = async() => {
+     const fetchProductAndSimilar = async() => {
       try{
-        const response = await axios.get(`${URL}/products/${id}`);
+        const productResponse = await axios.get(`${URL}/products/${id}`);
 
-        if (!response.data || !response.data.id){
+        if (!productResponse.data || !productResponse.data.id){
           throw new Error('Product not found');
         }
 
-        const productData = response.data;
+        const productData = productResponse.data;
         setProduct(productData);
 
-        const allProducts = await axios.get(`${URL}/products/`);
-        const categories = allProducts.data
+        const similarProductsResponse = await axios.get(`${URL}/products/category/${productData.category}`);
+        const similarData = similarProductsResponse.data
           .filter(item => 
-            item.category === productData.category && 
             item.id !== productData.id)
           .slice(0, 5);
-        setSimilarProducts(categories);
-        setLoading(false);
+        setSimilarProducts(similarData);    
       }
       catch(err){
-        console.error('Error fetching product categories: ', error);
+        console.error('Error fetching product categories: ', err);
         setError('Product not found or failed to load. Please try again later.');
       }
       finally {
@@ -52,12 +51,16 @@ function ProductDetail(){
       }
      }
 
-     fetchProduct();
+     fetchProductAndSimilar();
 
   }, [id]);
 
-  const addToCart = () => {
-    dispatch({ type: 'add', payload: { ...product, qty } });  
+  const handleAddToCart = () => {
+    dispatch({ type: 'add', payload: { ...product, qty: 1}});
+  };
+
+  const handleQtyChange = (newQty) => {
+    dispatch({ type: 'set_qty', payload: { id: product.id, qty: newQty } });
   };
 
   if (loading){
@@ -107,12 +110,21 @@ function ProductDetail(){
                 <h3>Description</h3>
                 <p>{product.description}</p>
               </div>
-              <div>
-                <QuantitySelector value={qty} onChange={setQty} />
+              <div className='cart-actions'>
+                {cartItem ? (
+                  <QuantitySelector 
+                    value={cartItem.qty}
+                    onChange={handleQtyChange}
+                  />
+                  ) : (
+                    <button 
+                      className='btn'
+                      onClick={handleAddToCart}>
+                        Add to Cart
+                    </button>
+                  )
+                } 
               </div>
-              <button className="btn" onClick={addToCart}>
-                Add To Cart
-              </button>
             </div>
           </div>
         </div>
