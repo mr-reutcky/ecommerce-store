@@ -5,6 +5,7 @@ import '../css/CartDrawer.css';
 import Button from './Button';
 
 
+
 function CartDrawer({ open, onClose }) {
   const { state: { items }, dispatch } = useCart();
   const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
