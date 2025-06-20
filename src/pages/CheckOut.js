@@ -18,9 +18,6 @@ function Checkout() {
     formState: { errors }
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("Form Data:", data);
-  };
 
   return (
     <div className="checkout-page grid container">
@@ -37,7 +34,7 @@ function Checkout() {
         </div>
 
         {/* FORM */}
-        <form onSubmit={handleSubmit(onSubmit)} className="checkout-form-section">
+        <form className="checkout-form-section">
          
 
           <div className="form-group">
@@ -45,7 +42,7 @@ function Checkout() {
             <input type="text" {...register("fullName", { required: true })} />
            
           </div>
- <div className="form-group">
+            <div className="form-group">
             <label>Full Address</label>
             <input type="text" {...register("Address", { required: true })} />
           
