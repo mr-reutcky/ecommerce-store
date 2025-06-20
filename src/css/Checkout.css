@@ -1,46 +1,125 @@
-@charset "UTF-8";
-/* Reset Styles */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; 
+  gap: 2rem;
+  padding: 2rem;
+  min-height: 100vh;
+  background: #f8f9fa;
+  box-sizing: border-box;
+}
+
+.left,
+.right {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
 .container {
   width: min(100% - 30px, 1200px);
   margin-inline: auto;
 }
 
-button { 
-  cursor: pointer; 
-  border: none; 
-  background: none; 
+
+@media (max-width: 900px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
 }
-.checkout-page {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem;
+.payment-options {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  font-family: Arial, sans-serif;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
 }
 
+.payment-card {
+  padding: 16px 24px;
+  background-color: #f1f3f5;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border 0.2s, background-color 0.2s;
+}
+
+.payment-card:hover {
+  border: 2px solid #0a66c2;
+  background-color: #e7f1ff;
+}
 .checkout-form {
-  flex: 1;
-  min-width: 300px;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid #ddd;
 }
 
-.checkout-form h2 {
-  margin-bottom: 1.5rem;
-  font-size: 1.6rem;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 0.5rem;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
 }
 
-.checkout-form label {
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.submit-btn {
+  padding: 12px;
+  background-color: #222;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: #444;
+}
+.checkout-summary{
+    height: 400px;
+   gap: 10px;
+}
+h4{
+    font-size: 25px;
+}
+.items{
+    margin-bottom: 20px;
+}
+.summary{
+    margin-bottom: 5px;
+}
+.pay-button {
   display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+  margin: 20px auto;
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #09f;
+  width: 80px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.checkout-form input,
-.checkout-form select,
+.pay-button:hover {
+  background-color: #03a9f4;
+}

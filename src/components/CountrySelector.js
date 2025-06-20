@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const CountryDropdown = ({ register }) => {
+const CountrySelector = ({ register }) => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -30,4 +30,4 @@ const CountryDropdown = ({ register }) => {
   );
 };
 
-export default CountryDropdown;
+export default CountrySelector;
