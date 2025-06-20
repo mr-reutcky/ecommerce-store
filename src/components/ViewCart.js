@@ -72,7 +72,7 @@ function ViewCart() {
             <span>${totalCost.toFixed(2)}</span>
           </div>
           <div>
-            <Button to='/checkout' className='btn full-width' value='Proceed to Checkout' />
+            <Button to='/CheckOut' className='btn full-width' value='Proceed to Checkout' />
           </div>
         </aside>
       </div>

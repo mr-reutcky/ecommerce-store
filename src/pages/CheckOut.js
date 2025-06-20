@@ -1,9 +1,11 @@
 import React from 'react';
 import '../css/CheckOut.css';
+import CountrySelector from "../components/CountrySelector";
+
 
 function CheckOut() {
   return (
-    <div className="checkout-page">
+    <div className="checkout-page container">
       <h1>Checkout</h1>
 
       <div className="checkout-grid">
