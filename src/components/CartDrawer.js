@@ -2,9 +2,7 @@
 import React, { use } from 'react';
 import { useCart } from './CartContext';
 import '../css/CartDrawer.css';
-import CheckOut from "../pages/CheckOut";
-import { useNavigate } from 'react-router-dom';
-
+import Button from './Button';
 
 
 function CartDrawer({ open, onClose }) {
@@ -59,11 +57,8 @@ function CartDrawer({ open, onClose }) {
                   <span>Subtotal</span>
                   <span>${subtotal.toFixed(2)}</span>
                 </p>
-                <button className="primary full"  onClick={() => {
-                  onClose();
-                 navigate('/CheckOut');
-                 }}>View cart</button>
-                <button className="secondary full" onClick={onClose}>Continue shopping</button>
+                <Button to='/cart' className='primary full' onClick={onClose} value='View Cart' />
+                <Button value='Continue Shopping' className='secondary full' onClick={onClose} />
               </footer>
             </>
           )}
