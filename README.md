@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# Remu - E-Commerce Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Remu** is a fully functional e-commerce frontend built with React. It simulates a modern online store experience by integrating the [Fake Store API](https://fakestoreapi.com) and showcases smooth page transitions with **Framer Motion**.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Product listing with dynamic details
+- Add to cart and cart drawer functionality
+- Cart page with quantity and total pricing
+- Smooth page transitions using Framer Motion
+- Responsive layout and clean UI design
+- Scroll-to-section navigation
+- 404 page for unknown routes
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React**
+- **React Router DOM**
+- **Framer Motion**
+- **Fake Store API**
+- **CSS Modules / Custom CSS**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/mr-reutcky/ecommerce-store.git
+   cd ecommerce-store
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-### `npm run build`
+3. **Start the development server:**
+   ```bash
+   npm start
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Open your browser and go to:  
+   `http://localhost:3000`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+src/
+├── components/       # Reusable UI components (Header, Footer, CartDrawer, etc.)
+├── pages/            # Route pages (Home, About, Product, CartPage, 404)
+├── css/              # Stylesheets
+├── utils/            # Reusable utility functions (e.g., animations)
+└── App.js            # Main application with routes and layout
+```
 
-### `npm run eject`
+## Page Transitions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Framer Motion is used to animate between pages:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```js
+<motion.div
+  variants={pageTransition}
+  initial="initial"
+  animate="animate"
+  exit="exit"
+/>
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Routes are wrapped in `<AnimatePresence>` for exit animations to work.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Fake Store API
 
-## Learn More
+All product data is fetched from the open Fake Store API:
+- Products: `https://fakestoreapi.com/products`
+- Product by ID: `https://fakestoreapi.com/products/:id`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+No authentication or backend required.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Future Improvements
 
-### Code Splitting
+- Checkout functionality
+- Filtering by category
+- Authentication
+- Persistent cart (localStorage or context)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Credits
 
-### Analyzing the Bundle Size
+- [Fake Store API](https://fakestoreapi.com) for free product data
+- [Framer Motion](https://www.framer.com/motion/) for beautiful animations
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Developed by [Samuel Reutcky](https://github.com/mr-reutcky)**  
+MITT Software Development Student  
