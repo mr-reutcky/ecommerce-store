@@ -89,5 +89,9 @@ No authentication or backend required.
 
 ---
 
-**Developed by [Samuel Reutcky](https://github.com/mr-reutcky)**  
-MITT Software Development Student  
+**Developed by:**
+[Samuel Reutcky](https://github.com/mr-reutcky)
+[Lateef Adeyekun](https://github.com/ladeyekun)
+[Jiayi Nie](https://github.com/jiayimitt)
+
+MITT Software Development Students  
