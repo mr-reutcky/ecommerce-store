@@ -10,6 +10,7 @@ import { useState } from 'react';
 import Product from './pages/Product';
 import NotFoundPage from './pages/404'; 
 // import Cart from './components/Cart';
+import CheckOut from "../src/pages/CheckOut";
 
 
 const navLinks = [
@@ -29,6 +30,7 @@ function App() {
         <Route exact path="/product/:id" element={<Product />} />
         <Route path="*" element={<NotFoundPage />} />
         {/* <Route exact path="/cart" element={<Cart />} /> */}
+        <Route exact path="/CheckOut" element={<CheckOut />} />
       </Routes>
       <CartDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
       <Footer />
