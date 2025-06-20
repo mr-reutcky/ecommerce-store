@@ -30,7 +30,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
-        <Route exact path="/productg/:id" element={<Product />} />
+        <Route exact path="/productgit/:id" element={<Product />} />
         <Route exact path="/cart" element={<CartPage />} />
         <Route exact path="/CheckOut" element={<CheckOut/>} />
         <Route path="*" element={<NotFoundPage />} />
