@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import QuantitySelector from './QuantitySelector';
 import { FaTrash } from 'react-icons/fa';
 import '../css/CartPage.css';
-import { Button } from 'react-scroll';
+import Button from './Button';
 
 function ViewCart() {
   const { state: {items}, dispatch } = useCart();
@@ -71,9 +71,9 @@ function ViewCart() {
             <span>Total</span>
             <span>${totalCost.toFixed(2)}</span>
           </div>
-          <Link to='/checkout' className='btn full-width'>
-            Proceed to Checkout
-          </Link>
+          <div>
+            <Button to='/checkout' className='btn full-width' value='Proceed to Checkout' />
+          </div>
         </aside>
       </div>
     </main>
